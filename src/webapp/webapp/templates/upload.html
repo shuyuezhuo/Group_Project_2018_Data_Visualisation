@@ -1,0 +1,174 @@
+{% extends "layout.html" %}
+{% block body %}
+<!-- TODO: add the trigger of the calculation as a redirect -->
+<body style="background-color: #364652;">
+
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <br>
+        <div class="text-center shadow-sm"><h1 style="text-shadow: 0px 0px 0.5px #EEE5E5; color: #DDCECD; font-family: 'Roboto', sans-serif; position: relative; top: 20px; left: 4px;">Custom data upload</h1></div>
+        <br>
+        <br>
+        <h4 class="shadow-sm" style="color: white; text-shadow: 0px 0.5px 0.5px #EEE5E5; font-family: 'Roboto', sans-serif; position: relative; top: 10px; left: 4px;">Upload CSV data-file</h4></div>
+      <div class="col-md-3"></div>
+    </div>
+
+
+    <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload_page') }}">
+
+    <div class="row">
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-6">
+        <div class="form-group csv" style="position: relative; top: 10px; left: 4px;">
+          <div class="custom-file">
+            <label class="custom-file-label" for="CSV" id='csv_upload' >Choose file</label>
+            <input type="file" name="file" class="custom-file-input" id="CSV" required="required">
+          </div>
+          <br>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="float-left">
+
+          <!-- Modal button -->
+          <button type="button" class="btn btn-outline-success btn-small rounded-circle h-25" data-toggle="modal" data-target="#exampleModalCenter" style="position: relative; top: 13px; left: -20px; font-size: 6px; padding: 0.5px 3.5px;">
+            <i>i</i>
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle" style="font-family: 'Roboto', sans-serif;">CSV file formatting</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+
+
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-12" style="font-family: 'Roboto', sans-serif;"> Our CSV data-processing requires a .csv file formatted in the following way: </div>
+                      <br>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-2"></div>
+                      <div class="col-md-8">
+                        <br>
+                        <div class="border border-dark float-left" style="padding: 5px; font-family: 'Roboto', sans-serif;">
+                          <h6> <u>images, column1, column2</u></h6>
+
+                          image1.jpg, data, data <br>
+                          image2.jpg, data, data <br>
+                          image3.jpg, data, data
+                        </div>
+                      </div>
+
+                      <div class="col-md-2"></div>
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group images" style="position: relative; top: 10px; left: 4px;">
+          <br>
+          <h4 class="shadow-sm" style="color: white; text-shadow: 0px 0.5px 0.5px #EEE5E5; font-family: 'Roboto', sans-serif;">Upload image dataset (jpg, png)</h4>
+            <div class="custom-file">
+              <label class="custom-file-label" for="customFile" id='image_upload'>Choose files</label>
+              <input type="file" name="images[]" class="custom-file-input" id="customFile" required="required" multiple webkitdirectory>
+            </div>
+          </div>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <br>
+        <div class="form-group submit text-center" style="position: relative; top: 10px;">
+          <button class="btn btn-primary btn-info" style="font-family: 'Roboto', sans-serif;" type="submit">Upload</button>
+          <!-- <button class="btn btn-lg btn-block">Upload</button> -->
+        </div>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </form>
+
+  </div>
+  
+  
+  
+<header class="navbar">
+	
+  <form action="/imagesupload" method="POST" enctype="multipart/form-data" >
+      <span class="btn btn-default btn-file">
+        Browse <input type="file" name="csv" required="required">
+      </span>
+      <span class="btn btn-default btn-file">
+        Browse <input type="file" name="image" required="required" multiple>
+      </span>
+
+    <input type="submit" value="Upload your image" class="btn btn-primary">
+  </form>
+
+  <span class="navbar-text"> Image moderation with
+      <a href="https://sightengine.com/">Sightengine</a>
+  </span>
+</header>
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+  <script>
+    $('#customFile').change(function(){
+        console.log(this)
+        var filesCount = $(this)[0].files.length;
+        $("#image_upload").replaceWith("<label class='custom-file-label' for='customFile' id='image_upload'>" + filesCount + " files selected </label>")
+    });
+
+
+    $('#CSV').change(function(){
+        console.log(this)
+        var fileName = $('input[type=file]').val().split("\\").pop();
+        $("#csv_upload").replaceWith("<label class='custom-file-label' for='CSV' id='csv_upload'>" + fileName + "</label>")
+    });
+  </script>
+
+
+</div>
+
+
+
+{% endblock %}
+
+
+

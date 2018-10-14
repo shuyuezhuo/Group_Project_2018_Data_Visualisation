@@ -1,0 +1,3 @@
+graft webapp/templates
+graft webapp/static
+include webapp/schema.sql

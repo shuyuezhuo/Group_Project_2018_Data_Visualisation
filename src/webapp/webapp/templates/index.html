@@ -1,0 +1,81 @@
+<!-- <!DOCTYPE html>
+<html lang="en"> -->
+{% extends "layout.html" %}
+{% block body %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">
+<body style="background-color: #364652;">
+
+<!-- font-family: 'Roboto Condensed', sans-serif;
+font-family: 'Roboto', sans-serif; -->
+
+<title>Select Dataset</title>
+<div class="container">
+  <br>
+  <div class="row">
+    <br>
+    <div class="col-md-2"></div>
+    <div class="col-md-8"><div class="text-center shadow-sm"><h1 style="text-shadow: 0px 0px 0.5px #EEE5E5;color: #DDCECD; font-family: 'Roboto', sans-serif; position: relative; top: 20px; left: 4px;">Select Dataset</h1></div></div>
+    <div class="col-md-2"></div>
+  </div>
+
+  <div class="row" style="position: relative; top: 20px;">
+    <div class="col-md-3"></div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+      <br>
+      <form action="" method="post">
+        <input type="hidden" name="button" value="default" />
+        <tr><td><input class="btn btn-info" type="submit" style="font-family: 'Roboto', sans-serif;position: relative; left: 11px;"value="Lung dataset"></td></tr>
+      </form>
+      <br>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-3"></div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2 float-left">
+      <br>
+      <form action="" method="post">
+        <input type="hidden" name="button" value="custom"  />
+        <tr><td><input class="btn btn-info" style="position: relative; left: 6px; top: 10px;" type="submit" value="Custom dataset"></td></tr>
+      </form>
+      <br>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-3"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2 text-center">
+      <br>
+      <form action="" method="post">
+        <input type="hidden" name="button" value="upload" />
+        <tr><td><input class="btn btn-info" type="submit" value="Upload new dataset"></td></tr>
+      </form>
+      <br>
+    </div>
+    <div class="col-md-2 float-left">
+      <br>
+      <span class="align-bottom" style="position: relative; top: 4px; left: -2px;"><i class="fas fa-lock"></i></span>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+
+
+
+
+</div>
+
+
+</body>
+
+{% endblock %}
+
+
